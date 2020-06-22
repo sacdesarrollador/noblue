@@ -1,0 +1,9 @@
+{
+  "name": "noblue",
+  "displayName": "noblue",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ]
+}
