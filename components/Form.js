@@ -2,12 +2,26 @@ import React from 'react';
 import {View, TextInput, StyleSheet, Text} from 'react-native';
 import Button from './Button';
 import Card from './Card';
-const Form = ({type}) => {
+const Form = ({type, navigation}) => {
+  console.log(navigation)
   return type == 'signin' ? (
     <>
-      <TextInput placeholder="Username" style={styles.input} />
-      <TextInput placeholder="Password" style={styles.input} />
-      <Button text="Sign In" type="default" />
+      <TextInput
+        placeholder="Username"
+        style={styles.input}
+        selectionColor="#DE6363"
+      />
+      <TextInput
+        placeholder="Password"
+        style={styles.input}
+        selectionColor="#DE6363"
+        secureTextEntry={true}
+      />
+      <Button
+        text="Sign In"
+        type="default"
+        action={() => navigation.navigate('Profile')}
+      />
       <View>
         <Text style={styles.text}>Did you forget the password?</Text>
       </View>
@@ -15,28 +29,29 @@ const Form = ({type}) => {
   ) : type === 'signup' ? (
     <>
       <TextInput
-        selectionColor="#fff"
-        autoCompleteType="email"
+        selectionColor="#DE6363"
         placeholder="Email"
         style={styles.input}
         textContentType="emailAddress"
       />
       <TextInput
-        autoCompleteType="username"
         placeholder="Username"
         style={styles.input}
         textContentType="username"
+        selectionColor="#DE6363"
       />
       <TextInput
-        autoCompleteType="password"
         placeholder="Password"
         style={styles.input}
         textContentType="newPassword"
+        selectionColor="#DE6363"
+        secureTextEntry={true}
       />
       <TextInput
-        autoCompleteType="password"
         placeholder="Repeat password"
         style={styles.input}
+        selectionColor="#DE6363"
+        secureTextEntry={true}
       />
       <Button text="Sign Up" type="default" />
     </>
@@ -53,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     fontSize: 14,
     height: 40,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   text: {
     color: '#000',

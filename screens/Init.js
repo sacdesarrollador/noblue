@@ -2,12 +2,19 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Button from '../components/Button';
 export default function Init({navigation}) {
-  console.log(navigation)
   return (
     <>
       <View style={styles.containerBottom}>
-        <Button action = {() => navigation.navigate("Signin")} text="Sign In" type="default" />
-        <Button action = {() => navigation.navigate("Signup")} text="Sign Up" type="light" />
+        <Button
+          action={() => navigation.navigate('Signin')}
+          text="Sign In"
+          type="default"
+        />
+        <Button
+          action={() => navigation.navigate('Signup')}
+          text="Sign Up"
+          type="light"
+        />
       </View>
     </>
   );

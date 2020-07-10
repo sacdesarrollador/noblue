@@ -1,46 +1,33 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  KeyboardAvoidingView,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Form from '../components/Form';
 import Header from '../components/Header';
 import Card from '../components/Card';
-export default function Signin() {
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
+export default function Signin(props) {
   return (
-    <>
+    <View style={styles.container}>
       <Header text="Sign In" />
-      <SafeAreaView style={{flex:1}}>
-          <KeyboardAvoidingView behavior="padding" style={styles.container}>
-            <View style={styles.logo}>
-              <Text style={styles.text}>My Time</Text>
-            </View>
-            <Card jsx={<Form type="signin" />} />
-          </KeyboardAvoidingView>
-      </SafeAreaView>
-    </>
+      <KeyboardAwareScrollView>
+        <View style={styles.logo} />
+        <Card jsx={<Form type="signin" navigation={props.navigation} />} />
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    alignItems: 'center',
+    flex: 1,
     backgroundColor: '#DE6363',
-    paddingVertical: 10,
   },
   logo: {
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DE6363',
-    paddingVertical: 10,
-    minHeight: 100,
+    backgroundColor: '#000',
+    paddingVertical: 80,
   },
-  text: {
+  title: {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 50,

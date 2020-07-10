@@ -1,19 +1,19 @@
 import React from 'react';
-import {StyleSheet, View, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Form from '../components/Form';
 import Header from '../components/Header';
 import Card from '../components/Card';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export default function Signup() {
   return (
-    <ScrollView style={{flex: 1}}>
-      <View style={styles.logo} />
-      <View style={styles.container}>
-        <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
-          <Card jsx={<Form type="signup" />} />
-        </KeyboardAvoidingView>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Header text="Sign Up" />
+      <KeyboardAwareScrollView>
+        <View style={styles.logo} />
+        <Card jsx={<Form type="signup" />} />
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignItems: 'center',
-    backgroundColor: '#DE6363',
-    paddingVertical: 80,
+    backgroundColor: '#000',
+    minHeight: 180,
   },
   title: {
     justifyContent: 'center',

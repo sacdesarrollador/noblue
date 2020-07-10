@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 export default function Header({text}) {
   return (
     <View style={styles.container}>
-      <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>
+      <Text style={{fontSize: 18, color: '#D73F3D', fontWeight: 'bold'}}>
         {text}
       </Text>
     </View>
@@ -14,8 +14,8 @@ export default function Header({text}) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 50,
-    backgroundColor: '#D73F3D',
+    minHeight: 50,
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
